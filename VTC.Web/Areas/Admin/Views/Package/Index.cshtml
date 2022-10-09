@@ -1,0 +1,30 @@
+﻿@model List<PackageVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Packages</h1>
+
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>
+                    <a href="#">Edit</a>
+                </td>
+                <td> <a href="#">Delete</a></td>
+                <td><a href="#">Add level</a></td>
+
+
+            </tr>
+        }
+    </table>
+}
+
+else
+{
+    <h2>No data found</h2>
+}

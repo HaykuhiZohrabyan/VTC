@@ -12,8 +12,8 @@ namespace VTC.Data.Entities
         public string Title { get; set; }
         public string? ShortDescription { get; set; }
         public string Content { get; set; }
-        public int LevelId { get; set; }
-        [ForeignKey("LevelId")]
-        public virtual Level Level { get; set; }
+        public int SubjectId { get; set; }
+        [ForeignKey("SubjectId")]
+        public virtual Subject Subject { get; set; }
     }
 }
