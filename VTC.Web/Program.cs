@@ -15,6 +15,7 @@ namespace VTC.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<VTCDataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("VTCConnectionstring")));
             builder.Services.AddScoped<IPackageService, PackageService>();
+            builder.Services.AddScoped<ILevelService, LevelService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

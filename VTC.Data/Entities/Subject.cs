@@ -14,6 +14,6 @@ namespace VTC.Data.Entities
         [ForeignKey("LevelId")]
         public Level Level { get; set; }
         public string Description { get; set; }
-        public string LogoFile { get; set; }
+        public string? LogoFile { get; set; }
     }
 }
