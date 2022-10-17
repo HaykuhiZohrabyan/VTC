@@ -13,4 +13,11 @@ namespace VTC.Application.ViewModels
         public string PackageName { get; set; }
         public int SubjectCount { get; set; }
     }
+    public class LevelInfoVM
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string PackageName { get; set; }
+        public List<string> SubjectList { get; set; }
+    }
 }

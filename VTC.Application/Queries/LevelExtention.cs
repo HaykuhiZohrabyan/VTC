@@ -39,8 +39,22 @@ namespace VTC.Application.Queries
                 }).FirstOrDefault();
             return data;
         }
+        public static LevelInfoVM GetById(this DbSet<Level> db, int levelId)
+        {
+            var LevelDb = db.Where(l => l.Id == levelId).
+                Select(l => new LevelInfoVM
+                {
+                    Id = l.Id
+                 ,
+                    Title = l.Title,
+                    PackageName = l.Package.Title,
+                    SubjectList = l.Subjects.Where(l => l.LevelId == levelId).Select(l => l.Name).ToList()
+                }).AsNoTracking().FirstOrDefault();
+            return LevelDb;
+        }
+       
 
-        // GetbyId => level info + subject list Haykuhi
+      
         
     }
 }

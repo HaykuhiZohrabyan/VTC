@@ -13,6 +13,7 @@ namespace VTC.Application.Services.Interfaces
         public void Add(LevelAddEditVM levelModel);
         public void Update(LevelAddEditVM levelModel);
         public LevelAddEditVM GetForEdit(int levelid);
+        public LevelInfoVM GetInfoById(int levelid);
 
     }
 }
