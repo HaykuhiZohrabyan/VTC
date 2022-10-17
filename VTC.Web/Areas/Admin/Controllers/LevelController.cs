@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VTC.Application.ViewModels;
 using VTC.Application.Services.Interfaces;
-using 
+using VTC.Application.ViewModels.Level;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Linq.Expressions;
+
 namespace VTC.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -22,8 +26,28 @@ namespace VTC.Web.Areas.Admin.Controllers
         }
         public IActionResult AddEdit(int? levelId)
         {
-            Leve
-            return PartialView();
+            LevelAddEditVM level = levelId.HasValue ? _levelService.GetForEdit(levelId.Value) :new LevelAddEditVM();
+            return PartialView("_AddEdit",level);
         }
-    }
+        [HttpPost]
+        public IActionResult AddEdit(LevelAddEditVM model)
+        {
+            if (model.Id == 0)
+            {
+            _levelService.Add(model);
+            }
+            else
+            {
+            _levelService.Update(model);
+            }
+            return RedirectToAction("Index");
+        }
+        public IActionResult Detail(LevelInfoVM model)
+        {
+            var detail = _levelService.GetInfoById(model.Id);
+            return View(detail);
+        
+        }
+
+    }      
 }

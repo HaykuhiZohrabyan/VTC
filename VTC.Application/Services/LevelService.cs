@@ -49,6 +49,12 @@ namespace VTC.Application.Services
             return _context.Levels.GetForEdit(levelid);
         }
 
+        public LevelInfoVM GetInfoById(int levelid)
+        {
+            var Info = _context.Levels.GetById(levelid);
+            return Info;
+        }
+
         public void Update(LevelAddEditVM levelModel)
         {
             var level = new Level()
