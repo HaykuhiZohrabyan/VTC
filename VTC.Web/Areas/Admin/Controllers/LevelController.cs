@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VTC.Application.Services.Interfaces;
+using 
 namespace VTC.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -18,6 +19,11 @@ namespace VTC.Web.Areas.Admin.Controllers
             ViewBag.SelectedPackageId = packageId;
             var data = _levelService.GetAllLevels(packageId);
             return View(data);
+        }
+        public IActionResult AddEdit(int? levelId)
+        {
+            Leve
+            return PartialView();
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using VTC.Application.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using VTC.Data.Entities;
+using VTC.Application.ViewModels.Level;
+
 namespace VTC.Application.Queries
 {
     public static class LevelExtention
@@ -24,6 +26,17 @@ namespace VTC.Application.Queries
                .AsSplitQuery()
                .AsNoTracking().ToList();
 
+            return data;
+        }
+        public static LevelAddEditVM GetForEdit(this DbSet<Level> db, int levelId)
+        {
+            var data = db.Where(p => p.Id == levelId)
+                .Select(p => new LevelAddEditVM
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    PackageId = p.PackageId
+                }).FirstOrDefault();
             return data;
         }
 

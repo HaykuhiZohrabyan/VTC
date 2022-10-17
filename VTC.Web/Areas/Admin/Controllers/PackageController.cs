@@ -20,12 +20,22 @@ namespace VTC.Web.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id)
         {
-            return PartialView("_AddEdit");
+            PackageVM model = id.HasValue ? _packageService.GetById(id.Value) : new PackageVM(0,null);
+            return PartialView("_AddEdit",model);
         }
+
         [HttpPost]
         public IActionResult AddEdit(PackageVM model)
         {
-            return View();
+            if(model.Id ==0)
+            {
+                _packageService.Add(model);
+            }
+            else
+            {
+                _packageService.Update(model);
+            }
+            return RedirectToAction("Index");
         }
 
 

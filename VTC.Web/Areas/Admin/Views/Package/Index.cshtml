@@ -4,7 +4,7 @@
 }
 
 <h1>Packages</h1>
-
+<a asp-action="AddEdit" class="btn btn-success modal-open">Add</a>
 @if (Model.Any())
 {
     <table class="table table-striped">
@@ -13,7 +13,7 @@
             <tr>
                 <td>@item.Title</td>
                 <td>
-                    <a href="#">Edit</a>
+                    <a asp-action="AddEdit" asp-route-id="@item.Id" class="modal-open">Edit</a>
                 </td>
                 <td> <a href="#">Delete</a></td>
                 <td><a href="#">Add level</a></td>
