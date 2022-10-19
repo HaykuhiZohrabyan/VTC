@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using VTC.Application.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using VTC.Data.Entities;
-using VTC.Application.ViewModels.Level;
+
 
 namespace VTC.Application.Queries
 {

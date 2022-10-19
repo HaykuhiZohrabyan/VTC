@@ -7,7 +7,6 @@ using VTC.Application.Services.Interfaces;
 using VTC.Application.ViewModels;
 using VTC.Data;
 using VTC.Application.Queries;
-using VTC.Application.ViewModels.Level;
 using VTC.Data.Repositories.Interfaces;
 using VTC.Data.Entities;
 
@@ -57,6 +56,7 @@ namespace VTC.Application.Services
 
         public void Update(LevelAddEditVM levelModel)
         {
+            
             var level = new Level()
             {
                 Title = levelModel.Title,

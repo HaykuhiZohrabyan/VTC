@@ -16,7 +16,7 @@
                     <a asp-action="AddEdit" asp-route-id="@item.Id" class="modal-open">Edit</a>
                 </td>
                 <td> <a href="#">Delete</a></td>
-                <td><a href="#">Add level</a></td>
+                <td><a asp-action="AddEdit" asp-controller="Level" asp-route-packageId="@item.Id" class="modal-open">Add level</a></td>
 
 
             </tr>
