@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VTC.Application.ViewModels;
 using VTC.Application.Services.Interfaces;
+using VTC.Data.Enums;
 namespace VTC.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -38,6 +39,20 @@ namespace VTC.Web.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult ChangeStatus(int packageId,EntityStatus entityStatus)
+        {
+            var package = _packageService.GetById(packageId);
+            ViewBag.PackageStatus = entityStatus;
+            return PartialView("_ChangeStatus",package);
+        }
+        [HttpPost]
+        [ActionName("ChangeStatus")]
+        public IActionResult ChangeStatusPost(int Id, EntityStatus EntityStatus)
+        {
+            _packageService.UpdateStatus(Id, EntityStatus);
+            return RedirectToAction("Index");
+        }
 
     }
 }

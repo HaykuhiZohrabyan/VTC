@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace VTC.Data.Entities
 {
-    public class Lesson
+    public class Lesson:Entity
     {
         public int Id { get; set; }
         public string Title { get; set; }

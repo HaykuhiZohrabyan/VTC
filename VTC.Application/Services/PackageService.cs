@@ -9,6 +9,8 @@ using VTC.Application.Queries;
 using VTC.Data;
 using VTC.Data.Entities;
 using VTC.Data.Repositories.Interfaces;
+using VTC.Data.Enums;
+
 namespace VTC.Application.Services
 {
     public class PackageService : IPackageService
@@ -31,9 +33,10 @@ namespace VTC.Application.Services
             _uow.Save();
         }
 
-        public void Delete(int id)
+       public void UpdateStatus(int Id, EntityStatus EntityStatus)
         {
-            throw new NotImplementedException();
+            _packageRepository.UpdateStatus(Id, EntityStatus);
+            _uow.Save();
         }
 
         public List<PackageVM> GetAllPackages()

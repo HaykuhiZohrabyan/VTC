@@ -1,0 +1,29 @@
+﻿@model PackageVM
+@{
+    EntityStatus status = ViewBag.PackageStatus;
+}
+<div class="modal-content">
+    <div class="modal-header">
+      <h1> Change <b>@Model.Title</b> Package Status to @status.ToString()</h1>
+    </div>
+  
+      
+        <div class="modal-body">
+           
+            <form method="post" asp-area="Admin" asp-action="ChangeStatus" asp-controller="Package">
+                <input type="hidden" asp-for="Id" />
+                 <input type="hidden" name="EntityStatus" value="@status" />
+                <div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+          
+         
+           
+        </div>
+   
+</div>

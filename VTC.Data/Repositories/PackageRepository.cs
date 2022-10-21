@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using VTC.Data.Repositories.Interfaces;
 using VTC.Data.Entities;
 using VTC.Data;
+using VTC.Data.Enums;
+
 namespace VTC.Data.Repositories
 {
     public class PackageRepository:IPackageRepository
@@ -24,6 +26,12 @@ namespace VTC.Data.Repositories
         {
             var entity = _context.Packages.FirstOrDefault(p => p.Id == package.Id);
             entity.Title = package.Title;
+        }
+
+        public void UpdateStatus(int Id, EntityStatus entityStatus)
+        {
+            var entity = _context.Packages.FirstOrDefault(p => p.Id == Id);
+            entity.EntityStatus = entityStatus;
         }
     }
 }

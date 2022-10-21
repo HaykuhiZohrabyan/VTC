@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VTC.Application.ViewModels;
+using VTC.Data.Enums;
 namespace VTC.Application.Services.Interfaces
 {
     public interface IPackageService
@@ -12,6 +13,6 @@ namespace VTC.Application.Services.Interfaces
         void Add(PackageVM model);
         void Update(PackageVM model);
         PackageVM GetById(int id);
-        void Delete(int id);
+        void UpdateStatus(int Id, EntityStatus EntityStatus);
     }
 }

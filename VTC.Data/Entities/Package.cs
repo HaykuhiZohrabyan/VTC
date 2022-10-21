@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTC.Data.Entities
 {
-    public class Package
+    public class Package:Entity
     {
         public int Id { get; set; }
         public string Title { get; set; }
