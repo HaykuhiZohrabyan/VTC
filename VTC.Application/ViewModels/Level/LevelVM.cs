@@ -20,4 +20,10 @@ namespace VTC.Application.ViewModels
         public string PackageName { get; set; }
         public List<string> SubjectList { get; set; }
     }
+
+    public class LevelShortInfo
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+     }
 }

@@ -57,5 +57,10 @@ namespace VTC.Application.Services
             _packageRepository.Update(package);
             _uow.Save();
         }
+
+        public List<PackageLevelVM> GetPackagesWithLevels()
+        {
+            return _context.Packages.GetPackagesWithLevels();
+        }
     }
 }

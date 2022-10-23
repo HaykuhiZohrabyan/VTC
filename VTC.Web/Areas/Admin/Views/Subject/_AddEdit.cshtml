@@ -1,0 +1,68 @@
+﻿@model SubjectAddEditVM
+@{
+    string actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+      <h1>@actionText Package</h1>
+    </div>
+  
+      
+        <div class="modal-body">
+           
+            <form method="post" asp-area="Admin" asp-action="AddEdit" asp-controller="Subject" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label>
+                        Select package/level
+                        <select asp-for="LevelId">
+                            <option>
+                                Please select level
+                            </option>
+                            @foreach(PackageLevelVM item in ViewBag.Levels)
+                        {
+                            <optgroup label="@item.PackageName">
+                                @foreach(var subItem in item.Levels)
+                                {
+                                     <option value="@subItem.Id">
+                                         @subItem.Name
+                                     </option>
+                                }
+                               
+                            </optgroup>
+                        }
+                        
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Subject Name
+                        <input asp-for="Name" class="form-control" />
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Subject Description
+                        <textarea asp-for="Description" class="form-control">
+                            </textarea>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Subject Image File
+                        <input type="file" name="ImageFile" />
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">@actionText</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          
+         
+           
+        </div>
+   
+</div>

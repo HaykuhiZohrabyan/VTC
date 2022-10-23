@@ -10,5 +10,6 @@ namespace VTC.Data.Entities
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public virtual ICollection<Level> Levels { get; set; }
     }
 }

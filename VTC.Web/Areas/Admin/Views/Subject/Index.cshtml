@@ -1,0 +1,45 @@
+﻿@model List<SubjectVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Subjects</h1>
+<a asp-action="AddEdit" class="btn btn-success modal-open">Add</a>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Subject Name</th>
+            <th>Lesson Count</th>
+            <th>Level Name</th>
+            <th>Package Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LogoFile</td>
+                <td>@item.Name</td>
+                <td>@item.LessonCount</td>
+                <td>@item.LevelName</td>
+                <td>@item.PackageName</td>
+                <td>
+                    <a asp-action = "Detail" asp-route-Id="@item.Id">Detail</a>
+                </td>
+                <td>
+                    <a asp-action="AddEdit" asp-route-subjectId="@item.Id" class="modal-open">Edit</a>
+                </td>
+                <td>
+                    <a href="#">
+                        Delete
+                    </a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+
+</table>

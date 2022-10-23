@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
-namespace VTC.Data.Entities
+
+namespace VTC.Application.ViewModels
 {
-    public class Subject:Entity
+    public class SubjectInfoVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int LevelId { get; set; }
-        [ForeignKey("LevelId")]
-        public Level Level { get; set; }
         public string Description { get; set; }
         public string? LogoFile { get; set; }
-        public ICollection<Lesson> Lessons { get; set; }
+        public string LevelName { get; set; }
+        public List<string>  Lessons { get; set; }
     }
 }

@@ -18,9 +18,13 @@ namespace VTC.Web
             builder.Services.AddDbContext<VTCDataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("VTCConnectionstring")));
             builder.Services.AddScoped<IPackageService, PackageService>();
             builder.Services.AddScoped<ILevelService, LevelService>();
+            builder.Services.AddScoped<ISubjectService, SubjectService>();
             builder.Services.AddScoped<IPackageRepository, PackageRepository>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<ILevelRepository, LevelRepository>();
+            builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
+            
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

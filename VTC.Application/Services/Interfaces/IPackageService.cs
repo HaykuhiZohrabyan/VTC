@@ -14,5 +14,6 @@ namespace VTC.Application.Services.Interfaces
         void Update(PackageVM model);
         PackageVM GetById(int id);
         void UpdateStatus(int Id, EntityStatus EntityStatus);
+        List<PackageLevelVM> GetPackagesWithLevels();
     }
 }

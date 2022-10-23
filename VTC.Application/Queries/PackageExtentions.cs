@@ -22,5 +22,18 @@ namespace VTC.Application.Queries
             return new PackageVM(entity.Id, entity.Title);
 
         }
+
+        public static List<PackageLevelVM> GetPackagesWithLevels(this DbSet<Package> db)
+        {
+            return db.Select(p => new PackageLevelVM
+            {
+                PackageName = p.Title,
+                Levels = p.Levels.Select(l=>new LevelShortInfo
+                {
+                    Id =l.Id,
+                    Name =l.Title
+                }).ToList()
+            }).AsNoTracking().AsSplitQuery().ToList();
+        }
     }
 }
