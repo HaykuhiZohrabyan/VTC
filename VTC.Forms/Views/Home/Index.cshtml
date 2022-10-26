@@ -1,0 +1,66 @@
+﻿@model ParentAgreementVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="ParentFullName">
+
+            </label>
+            <input asp-for="ParentFullName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentIdNumber">
+
+            </label>
+            <input asp-for="ParentIdNumber" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentIdFrom">
+
+            </label>
+            <input asp-for="ParentIdFrom" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentIdIssueddate">
+
+            </label>
+            <input asp-for="ParentIdIssueddate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentSocialCard">
+
+            </label>
+            <input asp-for="ParentSocialCard" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Address">
+
+            </label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentDob">
+
+            </label>
+            <input asp-for="ParentDob" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ChildFullName">
+
+            </label>
+            <input asp-for="ChildFullName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ChildBirthCertificate">
+
+            </label>
+            <input asp-for="ChildBirthCertificate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success mt-2">Send</button>
+        </div>
+    </form>
+</div>

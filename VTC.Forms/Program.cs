@@ -1,11 +1,11 @@
 using VTC.Data;
-using Microsoft.EntityFrameworkCore;
 using VTC.Application.Services.Interfaces;
-using VTC.Application.Services;
 using VTC.Data.Repositories.Interfaces;
 using VTC.Data.Repositories;
+using VTC.Application.Services;
+using Microsoft.EntityFrameworkCore;
 
-namespace VTC.Web
+namespace VTC.Forms
 {
     public class Program
     {
@@ -14,19 +14,13 @@ namespace VTC.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            //var connectionstring = builder.Configuration.GetConnectionString("");
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<VTCDataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("VTCConnectionstring")));
-            builder.Services.AddScoped<IPackageService, PackageService>();
-            builder.Services.AddScoped<ILevelService, LevelService>();
-            builder.Services.AddScoped<ISubjectService, SubjectService>();
-            builder.Services.AddScoped<IPackageRepository, PackageRepository>();
+            builder.Services.AddScoped<IFormService, FormService>();
+            builder.Services.AddScoped<IFormRepository, FormRepository>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped<ILevelRepository, LevelRepository>();
-            builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
 
-            
-            
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -46,7 +40,7 @@ namespace VTC.Web
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
