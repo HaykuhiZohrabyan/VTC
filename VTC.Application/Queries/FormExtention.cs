@@ -14,7 +14,7 @@ namespace VTC.Application.Queries
         public static List<ParentListVM> GetParentList(this DbSet<ParentAgreement> db)
         {
             return db.AsNoTracking().Select(parent => new ParentListVM() {
-                Id=parent.id,
+                Id=parent.Id,
                 ParentFullName=parent.ParentFullName,
                 ParentIdNumber=parent.ParentIdNumber,
                 ChildFullName=parent.ChildFullName,
@@ -24,9 +24,9 @@ namespace VTC.Application.Queries
         }
         public static ParentAgreementVM GetById(this DbSet<ParentAgreement> db,int Id)
         {
-            var data = db.Where(p => p.id == Id).Select(p => new ParentAgreementVM()
+            var data = db.Where(p => p.Id == Id).Select(p => new ParentAgreementVM()
             {
-                Id = p.id,
+                Id = p.Id,
                 ParentFullName = p.ParentFullName,
                 ChildBirthCertificate = p.ChildBirthCertificate,
                 ParentDob = p.ParentDob,
