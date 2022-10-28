@@ -13,11 +13,11 @@ namespace VTC.Application.Queries
     {
         public static List<ParentListVM> GetParentList(this DbSet<ParentAgreement> db)
         {
-            return db.AsNoTracking().Select(parent => new ParentListVM() {
-                Id=parent.Id,
-                ParentFullName=parent.ParentFullName,
-                ParentIdNumber=parent.ParentIdNumber,
-                ChildFullName=parent.ChildFullName,
+            return db.AsNoTracking().Select(p => new ParentListVM() {
+                Id=p.Id,
+                ParentFullName=p.ParentFullName,
+                ParentIdNumber=p.ParentIdNumber,
+                ChildFullName=p.ChildFullName,
                 
             }).ToList();
 

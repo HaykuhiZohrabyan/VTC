@@ -10,6 +10,7 @@ namespace VTC.Data.Enums
     {
         Active =1,
         Archived,
-        Deleted
+        Deleted,
+        FormProcessed
     }
 }
