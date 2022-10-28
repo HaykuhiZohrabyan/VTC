@@ -9,9 +9,11 @@
 <table class="table table-stripped">
     <thead>
         <tr>
-            <th>ParentFullName</th>
-            <th>ParentIdNumber</th>
-            <th>ChildFullName</th>
+            <th>Parent Name</th>
+            <th>Parent Surname</th>
+            <th>Parent ID/Passport</th>
+            <th>Child Name</th>
+            <th>Child Surname</th>
             <th></th>
         </tr>
     </thead>
@@ -19,9 +21,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.ParentFullName</td>
+                <td>@item.ParentFirstName</td>
+                <td>@item.ParentSecondName</td>
                 <td>@item.ParentIdNumber</td>
-                <td>@item.ChildFullName</td>
+                <td>@item.ChildFirstName</td>
+                <td>@item.ChildSecondName</td>
                
    
                 <td>

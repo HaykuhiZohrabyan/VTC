@@ -15,9 +15,12 @@ namespace VTC.Application.Queries
         {
             return db.AsNoTracking().Select(p => new ParentListVM() {
                 Id=p.Id,
-                ParentFullName=p.ParentFullName,
+                ChildFirstName=p.ChildFirstName,
+                ChildSecondName =p.ChildSecondName,
+                ParentFirstName   =p.ParentFirstName,
+                ParentSecondName = p.ParentSecondName,             
                 ParentIdNumber=p.ParentIdNumber,
-                ChildFullName=p.ChildFullName,
+               
                 
             }).ToList();
 
@@ -27,7 +30,8 @@ namespace VTC.Application.Queries
             var data = db.Where(p => p.Id == Id).Select(p => new ParentAgreementVM()
             {
                 Id = p.Id,
-                ParentFullName = p.ParentFullName,
+                ChildFirstName = p.ChildFirstName,
+                ChildSecondName = p.ChildSecondName,
                 ChildBirthCertificate = p.ChildBirthCertificate,
                 ParentDob = p.ParentDob,
                 ParentIdFrom = p.ParentIdFrom,
@@ -35,7 +39,8 @@ namespace VTC.Application.Queries
                 Address = p.Address,
                 ParentIdIssueddate = p.ParentIdIssueddate,
                 ParentIdNumber = p.ParentIdNumber,
-                ChildFullName = p.ChildFullName,
+                ParentFirstName = p.ParentFirstName,
+                ParentSecondName = p.ParentSecondName,
                 CreatedDate = p.CreatedDate
             }).AsNoTracking().FirstOrDefault();
             return data;

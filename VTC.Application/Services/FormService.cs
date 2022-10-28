@@ -28,14 +28,16 @@ namespace VTC.Application.Services
         {
             var parentAgreement = new ParentAgreement()
             {
-                ParentFullName = model.ParentFullName,
+                ParentFirstName = model.ParentFirstName,
+                ParentSecondName = model.ParentSecondName,
                 ParentSocialCard = model.ParentSocialCard,
                 ParentIdFrom = model.ParentIdFrom,
                 Address = model.Address,
                 ParentDob = model.ParentDob,
                 ParentIdNumber = model.ParentIdNumber,
                 ParentIdIssueddate = model.ParentIdIssueddate,
-                ChildFullName = model.ChildFullName,
+                ChildFirstName = model.ChildFirstName,
+                ChildSecondName = model.ChildSecondName,
                 ChildBirthCertificate = model.ChildBirthCertificate            
             };
             _formRepository.Add(parentAgreement);
