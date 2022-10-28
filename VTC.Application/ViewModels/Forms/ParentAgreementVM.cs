@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace VTC.Application.ViewModels
 {
     public class ParentAgreementVM
-    {
+    {   public int Id { get; set; }
         public string ParentFullName { get; set; }
         public DateTime ParentDob { get; set; }
         public string ParentIdNumber { get; set; }
@@ -17,5 +17,6 @@ namespace VTC.Application.ViewModels
         public string ChildFullName { get; set; }
         public string Address { get; set; }
         public string ChildBirthCertificate { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

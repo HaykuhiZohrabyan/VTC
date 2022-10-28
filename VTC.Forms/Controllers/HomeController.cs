@@ -2,23 +2,31 @@
 using System.Diagnostics;
 using VTC.Forms.Models;
 using VTC.Application.ViewModels;
+using VTC.Application.Services.Interfaces;
 
 namespace VTC.Forms.Controllers
 {
     public class HomeController : Controller
     {
 
-        private readonly ILogger<HomeController> _logger;
+        private readonly IFormService _formService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IFormService formService)
         {
-            _logger = logger;
+            _formService = formService;
+            
         }
-
+       
         [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Index(ParentAgreementVM model)
+        {
+           _formService.AddParentAgreement(model);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
