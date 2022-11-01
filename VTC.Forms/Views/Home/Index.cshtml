@@ -6,59 +6,59 @@
 <div>
     <form method="post">
         <div class="form-group">
-            <label asp-for="ParentFullName">
-
-            </label>
-            <input asp-for="ParentFullName" class="form-control" />
+            <input asp-for="ParentFirstName" class="form-control" placeholder="Parent Name" />
         </div>
+
+         <div class="form-group">
+             <br>          
+            <input asp-for="ParentSecondName" class="form-control" placeholder="Parent Surname"/>
+        </div>
+
         <div class="form-group">
-            <label asp-for="ParentIdNumber">
-
-            </label>
-            <input asp-for="ParentIdNumber" class="form-control" />
+           <br>
+            <input asp-for="ParentIdNumber" class="form-control" placeholder="Parent Id/Passport" />
         </div>
+
         <div class="form-group">
-            <label asp-for="ParentIdFrom">
-
-            </label>
-            <input asp-for="ParentIdFrom" class="form-control" />
+            <br>
+            <input asp-for="ParentIdFrom" class="form-control" placeholder="Parent Id/Passport Issuing authority" />
         </div>
+
         <div class="form-group">
-            <label asp-for="ParentIdIssueddate">
-
-            </label>
-            <input asp-for="ParentIdIssueddate" class="form-control" />
+             <br>
+            <input asp-for="ParentIdIssueddate" class="form-control" placeholder="Parent Id/Passport date of issue" />
         </div>
+
         <div class="form-group">
-            <label asp-for="ParentSocialCard">
-
-            </label>
-            <input asp-for="ParentSocialCard" class="form-control" />
+            <br>
+            <input asp-for="ParentSocialCard" class="form-control" placeholder="Parent Social Services Number"/>
         </div>
+
         <div class="form-group">
-            <label asp-for="Address">
-
-            </label>
-            <input asp-for="Address" class="form-control" />
+            <br>
+            <input asp-for="Address" class="form-control" placeholder = "Address" />
         </div>
+
         <div class="form-group">
-            <label asp-for="ParentDob">
-
-            </label>
-            <input asp-for="ParentDob" class="form-control" />
+             <br>
+            <input asp-for="ParentDob" class="form-control" placeholder="Parent Date of Birth"/>
         </div>
+
         <div class="form-group">
-            <label asp-for="ChildFullName">
-
-            </label>
-            <input asp-for="ChildFullName" class="form-control" />
+            <br>
+            <input asp-for="ChildFirstName" class="form-control" placeholder="Child Name"/>
         </div>
+
+          <div class="form-group">
+            <br>
+            <input asp-for="ChildSecondName" class="form-control" placeholder="Child Surname"/>
+        </div>
+
         <div class="form-group">
-            <label asp-for="ChildBirthCertificate">
-
-            </label>
-            <input asp-for="ChildBirthCertificate" class="form-control" />
+             <br>
+            <input asp-for="ChildBirthCertificate" class="form-control" placeholder="Child Birth Certificate Number"/>
         </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-success mt-2">Send</button>
         </div>
