@@ -23,7 +23,7 @@ namespace VTC.Application.Queries
                
                 
             }).ToList();
-
+           
         }
         public static ParentAgreementVM GetById(this DbSet<ParentAgreement> db,int Id)
         {
@@ -45,5 +45,6 @@ namespace VTC.Application.Queries
             }).AsNoTracking().FirstOrDefault();
             return data;
         }
+        
     }
 }

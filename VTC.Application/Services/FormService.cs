@@ -18,7 +18,7 @@ namespace VTC.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly VTCDataContext _context;
 
-        public FormService(IFormRepository formRepository, IUnitOfWork unitOfWork,VTCDataContext context)
+        public FormService(IFormRepository formRepository, IUnitOfWork unitOfWork, VTCDataContext context)
         {
             _formRepository = formRepository;
             _unitOfWork = unitOfWork;
@@ -38,7 +38,7 @@ namespace VTC.Application.Services
                 ParentIdIssueddate = model.ParentIdIssueddate,
                 ChildFirstName = model.ChildFirstName,
                 ChildSecondName = model.ChildSecondName,
-                ChildBirthCertificate = model.ChildBirthCertificate            
+                ChildBirthCertificate = model.ChildBirthCertificate
             };
             _formRepository.Add(parentAgreement);
             _unitOfWork.Save();
@@ -52,6 +52,35 @@ namespace VTC.Application.Services
         public List<ParentListVM> GetParentAgreementList()
         {
             return _context.ParentAgreements.GetParentList();
+        }
+
+        public Tuple<List<ParentListVM>, int> GetParentList(ParentListVM model, int pageSize, int pageIndex)
+        {
+
+            var query = _context.ParentAgreements.Where(p => (
+            (model.ParentFirstName == null || p.ParentFirstName.ToLower().Contains(model.ParentFirstName.ToLower()))
+                       && (model.ParentSecondName == null || p.ParentSecondName.ToLower().Contains(model.ParentSecondName.ToLower())))
+                       && ( (model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
+                       ||( model.ChildSecondName == null || p.ChildSecondName.ToLower().Contains(model.ChildSecondName.ToLower()))));
+                
+
+            var list=query
+                .Select(m=>new ParentListVM()
+            {
+                ParentFirstName=m.ParentFirstName,
+                ParentSecondName=m.ParentSecondName,
+                ChildFirstName=m.ChildFirstName,
+                ChildSecondName=m.ChildSecondName,
+                Id=m.Id,
+                ParentIdNumber=m.ParentIdNumber,
+            })
+                .OrderByDescending(r => r.ParentFirstName)
+               
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+            var count = query.Count();
+            return Tuple.Create(list, count);
         }
     }
 }

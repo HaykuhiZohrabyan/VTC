@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VTC.Application.Services.Interfaces;
+using VTC.Application.ViewModels;
 
 namespace VTC.Web.Areas.Admin.Controllers
 {
@@ -11,6 +12,16 @@ namespace VTC.Web.Areas.Admin.Controllers
         {
                 _formService = formService;
         }
+        [HttpGet]
+        public IActionResult List(ParentListVM model, int pageSize = 10, int pageIndex = 1)
+        {
+            var data = _formService.GetParentList(model, pageSize, pageIndex);
+            ViewBag.searchKeyword = model;
+            ViewBag.PageCount = (int)Math.Ceiling((double)data.Item2 / pageSize);
+            ViewBag.CurrentPage = pageIndex;
+            return View(data.Item1);
+        }
+
 
         public IActionResult Index()
         {
@@ -26,5 +37,6 @@ namespace VTC.Web.Areas.Admin.Controllers
             var data = _formService.GetById(id);
             return View(data);
         }
+
     }
 }

@@ -12,8 +12,8 @@ namespace VTC.Data.Entities
     {
 
         public int Id { get; set; }
-        [Required (ErrorMessage = "Please enter Parent Name")]
-        public string ParentFirstName { get; set; }
+        [Required]
+        public  string ParentFirstName { get; set; }
         [Required]
         public string ParentSecondName { get; set; }
         [Required]
@@ -41,5 +41,9 @@ namespace VTC.Data.Entities
         }
        
 
+    
+   
+       
+        
     }
 }
