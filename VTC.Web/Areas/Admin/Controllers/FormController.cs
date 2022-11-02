@@ -27,10 +27,10 @@ namespace VTC.Web.Areas.Admin.Controllers
         {
 
           
-              var data=  _formService.GetParentAgreementList();
+            var data=  _formService.GetParentAgreementList();
             return View(data);  
         }
-        public IActionResult    PrintAgreement(int id)
+        public IActionResult PrintAgreement(int id)
         {
 
 

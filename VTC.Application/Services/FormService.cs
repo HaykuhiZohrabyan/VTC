@@ -57,15 +57,15 @@ namespace VTC.Application.Services
         public Tuple<List<ParentListVM>, int> GetParentList(ParentListVM model, int pageSize, int pageIndex)
         {
 
-            var query = _context.ParentAgreements.Where(p => (
+            var baseQuery = _context.ParentAgreements.Where(p => (
             (model.ParentFirstName == null || p.ParentFirstName.ToLower().Contains(model.ParentFirstName.ToLower()))
                        && (model.ParentSecondName == null || p.ParentSecondName.ToLower().Contains(model.ParentSecondName.ToLower())))
                        && ( (model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
-                       ||( model.ChildSecondName == null || p.ChildSecondName.ToLower().Contains(model.ChildSecondName.ToLower()))));
+                       && ( model.ChildSecondName == null || p.ChildSecondName.ToLower().Contains(model.ChildSecondName.ToLower()))));
                 
 
-            var list=query
-                .Select(m=>new ParentListVM()
+            var list= baseQuery
+               .Select(m=>new ParentListVM()
             {
                 ParentFirstName=m.ParentFirstName,
                 ParentSecondName=m.ParentSecondName,
@@ -79,7 +79,7 @@ namespace VTC.Application.Services
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
-            var count = query.Count();
+            var count = baseQuery.Count();
             return Tuple.Create(list, count);
         }
     }
