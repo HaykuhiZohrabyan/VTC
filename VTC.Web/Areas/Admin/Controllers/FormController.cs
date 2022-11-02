@@ -13,22 +13,15 @@ namespace VTC.Web.Areas.Admin.Controllers
                 _formService = formService;
         }
         [HttpGet]
-        public IActionResult List(ParentListVM model, int pageSize = 10, int pageIndex = 1)
+        public IActionResult Index(ParentListVM model, int pageSize = 10, int pageIndex = 1)
         {
+            ViewBag.PageSize = pageSize;
             var data = _formService.GetParentList(model, pageSize, pageIndex);
+         
             ViewBag.searchKeyword = model;
             ViewBag.PageCount = (int)Math.Ceiling((double)data.Item2 / pageSize);
             ViewBag.CurrentPage = pageIndex;
             return View(data.Item1);
-        }
-
-
-        public IActionResult Index()
-        {
-
-          
-            var data=  _formService.GetParentAgreementList();
-            return View(data);  
         }
         public IActionResult PrintAgreement(int id)
         {
