@@ -27,17 +27,20 @@
                 <td>@item.LevelName</td>
                 <td>@item.PackageName</td>
                 <td>
+                    <a asp-action="AddEdit" asp-controller="Lesson" asp-route-subjectId="@item.Id"  class="modal-open">Addlesson</a>
+                    </td>
+                <td>
                     <a asp-action = "Detail" asp-route-Id="@item.Id">Detail</a>
                 </td>
                 <td>
-                    <a asp-action="AddEdit" asp-route-subjectId="@item.Id" class="modal-open">Edit</a>
+                    <a asp-action="AddEdit" asp-route-subjectId="@item.Id" class="modal-open" >Edit</a>
                 </td>
                 <td>
                     <a href="#">
                         Delete
                     </a>
                 </td>
-                
+               
             </tr>
         }
     </tbody>
