@@ -57,7 +57,7 @@ namespace VTC.Application.Services
         public void Update(LevelAddEditVM levelModel)
         {
             
-            var level = new Level()
+            var level = new Level() 
             {
                 Title = levelModel.Title,
                 PackageId = levelModel.PackageId,
