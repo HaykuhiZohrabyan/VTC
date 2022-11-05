@@ -28,7 +28,8 @@ namespace VTC.Web
             builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
             builder.Services.AddScoped<IFormService,FormService>();
             builder.Services.AddScoped<IFormRepository, FormRepository>();
-
+            builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+            builder.Services.AddScoped<ILessonService, LessonService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
