@@ -35,5 +35,11 @@ namespace VTC.Web.Areas.Admin.Controllers
         {
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Detail(int Id)
+        { var subject = _subjectService.GetById(Id);
+           // 
+            return View(subject);
+        }
     }
 }
