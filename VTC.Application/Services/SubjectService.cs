@@ -47,7 +47,7 @@ namespace VTC.Application.Services
 
         public SubjectInfoVM GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Subjects.GetById(id);
         }
 
         public SubjectAddEditVM GetForEdit(int id)

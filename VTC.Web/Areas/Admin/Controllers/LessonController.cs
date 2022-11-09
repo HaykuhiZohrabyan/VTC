@@ -29,7 +29,7 @@ namespace VTC.Web.Areas.Admin.Controllers
             {
                 model.SubjectId=subjectId.Value;    
             }
-            return PartialView("AddEdit",model);
+            return View("AddEdit",model);
         }
         [HttpPost]
         public IActionResult AddEdit(LessonAddEditVM   model)
@@ -43,7 +43,7 @@ namespace VTC.Web.Areas.Admin.Controllers
             {
                 _lessonService.Update(model);
             }
-            return RedirectToAction("Index");   
+            return RedirectToAction("index","Subject");   
         }
     
 }

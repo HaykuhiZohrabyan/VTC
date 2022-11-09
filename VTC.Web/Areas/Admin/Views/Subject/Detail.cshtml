@@ -1,0 +1,37 @@
+﻿@model SubjectInfoVM
+<h1>Detail</h1>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Logo</th>
+            <th>LevelName</th>
+            
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>@Model.Name</th>
+            <th>@Model.Description</th>
+            <th>@Model.LogoFile</th>
+            <th>@Model.LevelName</th>
+      
+           
+        </tr>
+        
+        
+        @foreach (var item in Model.Lessons)
+        {
+            <div>
+                <button class="accordion">@item.Title</button>
+        
+                <a asp-action="AddEdit" asp-controller="Lesson" asp-route-lessonId="@item.Id">Edit</a>
+       
+
+            </div>
+           
+        }
+    </tbody>

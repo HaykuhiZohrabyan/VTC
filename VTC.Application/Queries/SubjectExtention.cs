@@ -38,7 +38,15 @@ namespace VTC.Application.Queries
                 LevelName = s.Level.Title,
                 Description = s.Description,
                 Name = s.Name,
-                Lessons = s.Lessons.Select(l=>l.Title).ToList(),
+                Lessons = s.Lessons.Select(l=>new LessonAddEditVM()
+                {
+                    Id = l.Id,  
+                    Content=l.Content,
+                    ShortDescription=l.ShortDescription,
+                    Title=l.Title,
+                    SubjectId=l.SubjectId,
+                }
+                ).ToList(),
                 LogoFile=s.LogoFile
             }).AsNoTracking()
                 .FirstOrDefault() ;
