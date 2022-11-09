@@ -13,6 +13,6 @@ namespace VTC.Application.ViewModels
         public string Description { get; set; }
         public string? LogoFile { get; set; }
         public string LevelName { get; set; }
-        public List<string>  Lessons { get; set; }
+        public List<LessonAddEditVM>  Lessons { get; set; }
     }
 }
