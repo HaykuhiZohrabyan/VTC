@@ -54,7 +54,7 @@ namespace VTC.Application.Services
             return _context.ParentAgreements.GetParentList();
         }
 
-        public Tuple<List<ParentListVM>, int> GetParentList(ParentListVM model, int pageSize, int pageIndex)
+        public PagedList<ParentListVM> GetParentList(ParentListVM model, int pageSize, int pageIndex)
         {
 
             var baseQuery = _context.ParentAgreements.Where(p => (
@@ -80,7 +80,12 @@ namespace VTC.Application.Services
                 .Take(pageSize)
                 .ToList();
             var count = baseQuery.Count();
-            return Tuple.Create(list, count);
+            return new PagedList<ParentListVM>()
+            {
+                Content = list,
+                PageCount = (int)Math.Ceiling((double)count / pageSize),
+                CurrentPage = pageIndex
+            };
         }
     }
 }

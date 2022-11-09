@@ -19,9 +19,9 @@ namespace VTC.Web.Areas.Admin.Controllers
             var data = _formService.GetParentList(model, pageSize, pageIndex);
          
             ViewBag.searchKeyword = model;
-            ViewBag.PageCount = (int)Math.Ceiling((double)data.Item2 / pageSize);
-            ViewBag.CurrentPage = pageIndex;
-            return View(data.Item1);
+           
+           
+            return View(data);
         }
         public IActionResult PrintAgreement(int id)
         {

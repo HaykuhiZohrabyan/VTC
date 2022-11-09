@@ -13,6 +13,6 @@ namespace VTC.Application.Services.Interfaces
         public void AddParentAgreement(ParentAgreementVM model);
         public List<ParentListVM> GetParentAgreementList();
         public ParentAgreementVM GetById(int id);
-        public Tuple<List<ParentListVM>, int> GetParentList(ParentListVM model, int pageSize, int pageIndex);
+        public PagedList<ParentListVM> GetParentList(ParentListVM model, int pageSize, int pageIndex);
     }
 }

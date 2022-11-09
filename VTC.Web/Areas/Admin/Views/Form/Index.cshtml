@@ -1,4 +1,4 @@
-﻿@model List<ParentListVM>
+﻿@model PagedList<ParentListVM>
 
 
 <h1>Agreement List</h1>
@@ -23,7 +23,7 @@
         </th>
         <th> </th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Content)
     {
 
         <tr>
@@ -51,16 +51,16 @@
     }
 </table>
 <div class="pages">
-    @if (ViewBag.CurrentPage > 1)
+    @if (Model.IsPrev)
     {
-        <a asp-action="Index" asp-route-pageIndex="@(ViewBag.CurrentPage -1)" class="btn btn-primary">
+        <a asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage -1)" class="btn btn-primary">
             previus
         </a>
     }
 
-    @for (int pageIndex = 1; pageIndex <= ViewBag.PageCount; pageIndex++)
+    @for (int pageIndex = 1; pageIndex <= Model.PageCount; pageIndex++)
     {
-        if (pageIndex == ViewBag.CurrentPage)
+        if (pageIndex == Model.CurrentPage)
         {
             <span class="btn btn-dark">
                 @pageIndex
@@ -74,9 +74,9 @@
         }
 
     }
-    @if (ViewBag.CurrentPage < ViewBag.PageCount)
+    @if (Model.IsNext)
     {
-        <a asp-action="Index" asp-route-pageIndex="@(ViewBag.CurrentPage +1)" class="btn btn-primary">
+        <a asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage +1)" class="btn btn-primary">
             next
         </a>
     }

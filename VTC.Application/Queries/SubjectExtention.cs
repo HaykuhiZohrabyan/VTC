@@ -49,6 +49,7 @@ namespace VTC.Application.Queries
                 ).ToList(),
                 LogoFile=s.LogoFile
             }).AsNoTracking()
+            .AsSplitQuery()
                 .FirstOrDefault() ;
 
             return entity;
