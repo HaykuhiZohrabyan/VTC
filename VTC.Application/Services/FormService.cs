@@ -54,14 +54,14 @@ namespace VTC.Application.Services
             return _context.ParentAgreements.GetParentList();
         }
 
-        public PagedList<ParentListVM> GetParentList(ParentListVM model, int pageSize, int pageIndex)
+        public PagedList<ParentListVM> GetParentList(ParentSearchForm model, int pageSize, int pageIndex)
         {
 
             var baseQuery = _context.ParentAgreements.Where(p => (
             (model.ParentFirstName == null || p.ParentFirstName.ToLower().Contains(model.ParentFirstName.ToLower()))
-                       && (model.ParentSecondName == null || p.ParentSecondName.ToLower().Contains(model.ParentSecondName.ToLower())))
+                       && (model.ParentLastName == null || p.ParentSecondName.ToLower().Contains(model.ParentLastName.ToLower())))
                        && ( (model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
-                       && ( model.ChildSecondName == null || p.ChildSecondName.ToLower().Contains(model.ChildSecondName.ToLower()))));
+                       && ( model.ChildLastName == null || p.ChildSecondName.ToLower().Contains(model.ChildLastName.ToLower()))));
                 
 
             var list= baseQuery

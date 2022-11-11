@@ -1,11 +1,11 @@
-﻿@model ParentListVM
+﻿@model ParentSearchForm
 <div>
 
     <form method="get">
         <input type="text" asp-for="ParentFirstName"  placeholder=" Parent  Name" />
-        <input type="text" asp-for="ParentSecondName" placeholder=" Parent  Surname" />
+        <input type="text" asp-for="ParentLastName" placeholder=" Parent  Surname" />
         <input type="text" asp-for="ChildFirstName" placeholder=" Child  Name" />
-        <input type="text" asp-for="ChildSecondName" placeholder=" Child Surame" />
+        <input type="text" asp-for="ChildLastName" placeholder=" Child Surame" />
         <input type="number" value="@ViewBag.PageSize" />
         <input type="submit" value="Search" class="btn btn-primary" />
     </form>

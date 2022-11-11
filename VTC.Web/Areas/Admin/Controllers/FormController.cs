@@ -13,17 +13,17 @@ namespace VTC.Web.Areas.Admin.Controllers
                 _formService = formService;
         }
         [HttpGet]
-        public IActionResult Index(ParentListVM model, int pageSize = 10, int pageIndex = 1)
+        public IActionResult Index(ParentSearchForm searchModel, int pageSize = 1, int pageIndex = 1)
         {
             ViewBag.PageSize = pageSize;
-            var data = _formService.GetParentList(model, pageSize, pageIndex);
+            var data = _formService.GetParentList(searchModel, pageSize, pageIndex);
          
-            ViewBag.searchKeyword = model;
+            ViewBag.SearchModel = searchModel;
 
             // generate dictionary for route
-            var values = model.GetType()
-                .GetProperties().ToDictionary(p=>p.Name,p=>p.GetValue(model)?.ToString());
-            ViewBag.values = values;
+            var values = searchModel.GetType()
+                .GetProperties().ToDictionary(p => p.Name, p => p.GetValue(searchModel)?.ToString());
+            ViewBag.Values = values;
             return View(data);
         }
         public IActionResult PrintAgreement(int id)
