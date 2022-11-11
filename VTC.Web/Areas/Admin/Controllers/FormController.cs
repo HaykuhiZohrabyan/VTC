@@ -19,8 +19,11 @@ namespace VTC.Web.Areas.Admin.Controllers
             var data = _formService.GetParentList(model, pageSize, pageIndex);
          
             ViewBag.searchKeyword = model;
-           
-           
+
+            // generate dictionary for route
+            var values = model.GetType()
+                .GetProperties().ToDictionary(p=>p.Name,p=>p.GetValue(model)?.ToString());
+            ViewBag.values = values;
             return View(data);
         }
         public IActionResult PrintAgreement(int id)
