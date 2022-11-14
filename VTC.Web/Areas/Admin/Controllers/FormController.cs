@@ -23,6 +23,9 @@ namespace VTC.Web.Areas.Admin.Controllers
             // generate dictionary for route
             var values = searchModel.GetType()
                 .GetProperties().ToDictionary(p => p.Name, p => p.GetValue(searchModel)?.ToString());
+            string value;
+            bool a = values.TryGetValue("PageIndex", out value);
+            pageIndex=Convert.ToInt32(value);
             ViewBag.Values = values;
             return View(data);
         }
