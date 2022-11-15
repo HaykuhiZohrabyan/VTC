@@ -6,7 +6,7 @@
         <input type="text" asp-for="ParentLastName" placeholder=" Parent  Surname" />
         <input type="text" asp-for="ChildFirstName" placeholder=" Child  Name" />
         <input type="text" asp-for="ChildLastName" placeholder=" Child Surame" />
-        <input type="number" value="@ViewBag.PageSize" />
+        <input type="number" name = "pageSize"  value="@ViewBag.PageSize" />
         <input type="submit" value="Search" class="btn btn-primary" />
     </form>
 </div>

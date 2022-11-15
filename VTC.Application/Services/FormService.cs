@@ -49,10 +49,6 @@ namespace VTC.Application.Services
             return _context.ParentAgreements.GetById(id);
         }
 
-        public List<ParentListVM> GetParentAgreementList()
-        {
-            return _context.ParentAgreements.GetParentList();
-        }
 
         public PagedList<ParentListVM> GetParentList(ParentSearchForm model, int pageSize, int pageIndex)
         {
@@ -60,22 +56,22 @@ namespace VTC.Application.Services
             var baseQuery = _context.ParentAgreements.Where(p => (
             (model.ParentFirstName == null || p.ParentFirstName.ToLower().Contains(model.ParentFirstName.ToLower()))
                        && (model.ParentLastName == null || p.ParentSecondName.ToLower().Contains(model.ParentLastName.ToLower())))
-                       && ( (model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
-                       && ( model.ChildLastName == null || p.ChildSecondName.ToLower().Contains(model.ChildLastName.ToLower()))));
-                
+                       && ((model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
+                       && (model.ChildLastName == null || p.ChildSecondName.ToLower().Contains(model.ChildLastName.ToLower()))));
 
-            var list= baseQuery
-               .Select(m=>new ParentListVM()
-            {
-                ParentFirstName=m.ParentFirstName,
-                ParentSecondName=m.ParentSecondName,
-                ChildFirstName=m.ChildFirstName,
-                ChildSecondName=m.ChildSecondName,
-                Id=m.Id,
-                ParentIdNumber=m.ParentIdNumber,
-            })
+
+            var list = baseQuery
+               .Select(m => new ParentListVM()
+               {
+                   ParentFirstName = m.ParentFirstName,
+                   ParentSecondName = m.ParentSecondName,
+                   ChildFirstName = m.ChildFirstName,
+                   ChildSecondName = m.ChildSecondName,
+                   Id = m.Id,
+                   ParentIdNumber = m.ParentIdNumber,
+               })
                 .OrderByDescending(r => r.ParentFirstName)
-               
+
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
