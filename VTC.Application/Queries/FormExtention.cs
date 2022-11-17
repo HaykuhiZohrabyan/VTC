@@ -11,21 +11,8 @@ namespace VTC.Application.Queries
 {
     public static class FormExtention
     {
-        public static List<ParentListVM> GetParentList(this DbSet<ParentAgreement> db)
-        {
-            return db.AsNoTracking().Select(p => new ParentListVM() {
-                Id=p.Id,
-                ChildFirstName=p.ChildFirstName,
-                ChildSecondName =p.ChildSecondName,
-                ParentFirstName   =p.ParentFirstName,
-                ParentSecondName = p.ParentSecondName,             
-                ParentIdNumber=p.ParentIdNumber,
-               
-                
-            }).ToList();
-           
-        }
-        public static ParentAgreementVM GetById(this DbSet<ParentAgreement> db,int Id)
+
+        public static ParentAgreementVM GetById(this DbSet<ParentAgreement> db, int Id)
         {
             var data = db.Where(p => p.Id == Id).Select(p => new ParentAgreementVM()
             {
@@ -45,6 +32,6 @@ namespace VTC.Application.Queries
             }).AsNoTracking().FirstOrDefault();
             return data;
         }
-        
+
     }
 }
