@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 namespace VTC.Application.ViewModels
 {
     public class ParentSearchForm
-    {   public int IndexPage { get; set; }
+    {   
         public string ParentFirstName { get; set; }
         public string ParentLastName { get; set; }
         public string ChildFirstName { get; set; }
-        public string ChildLastName { get; set; }
-        public ParentSearchForm()
-        {
-            IndexPage = 1;
-        }
+        public string ChildLastName { get; set; }     
+       
     }
 }

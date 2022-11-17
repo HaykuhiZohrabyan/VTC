@@ -10,8 +10,7 @@ namespace VTC.Application.Services.Interfaces
 {
     public interface IFormService
     {
-        public void AddParentAgreement(ParentAgreementVM model);
-        public List<ParentListVM> GetParentAgreementList();
+        public void AddParentAgreement(ParentAgreementVM model);    
         public ParentAgreementVM GetById(int id);
         public PagedList<ParentListVM> GetParentList(ParentSearchForm model, int pageSize, int pageIndex);
     }
